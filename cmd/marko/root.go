@@ -29,9 +29,9 @@ type RootCommand struct {
 func NewRootCommand() (*RootCommand, error) {
 	// nolint: exhaustivestruct
 	rootCmd := cobra.Command{
-		Use:   name,
-		Short: "Marko is a simple command line tool to manipulate Markov chains",
-		// Long:    ``,
+		Use:     name,
+		Short:   "Marko is a simple command line tool to manipulate Markov chains",
+		Example: "  marko train --order 2 < dataset.txt > model.json" + "\n" + "  marko generate --limit 3 < model.json",
 		Version: fmt.Sprintf("%v (commit=%v date=%v by=%v)", version, commit, buildDate, builtBy),
 	}
 
