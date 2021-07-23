@@ -6,6 +6,7 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/adrienaury/marko/internal/appli/generate"
 	"github.com/adrienaury/marko/internal/appli/train"
 	"github.com/mattn/go-isatty"
 	"github.com/rs/zerolog"
@@ -55,6 +56,7 @@ func NewRootCommand() (*RootCommand, error) {
 	}
 
 	rootCmd.AddCommand(train.NewCommand(rootCmd.CommandPath()))
+	rootCmd.AddCommand(generate.NewCommand(rootCmd.CommandPath()))
 
 	return &RootCommand{rootCmd}, nil
 }
