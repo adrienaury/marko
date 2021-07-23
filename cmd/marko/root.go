@@ -6,6 +6,7 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/adrienaury/marko/internal/appli/train"
 	"github.com/mattn/go-isatty"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -53,8 +54,7 @@ func NewRootCommand() (*RootCommand, error) {
 		return nil, err
 	}
 
-	// rootCmd.AddCommand(transaction.NewCommand(rootCmd.CommandPath()))
-	// rootCmd.AddCommand(receipt.NewCommand())
+	rootCmd.AddCommand(train.NewCommand(rootCmd.CommandPath()))
 
 	return &RootCommand{rootCmd}, nil
 }
