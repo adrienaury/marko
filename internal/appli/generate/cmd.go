@@ -75,12 +75,12 @@ func load(in *os.File) (*gomarkov.Chain, error) {
 
 	data, err := ioutil.ReadAll(in)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("%w", err)
 	}
 
 	err = json.Unmarshal(data, &chain)
 	if err != nil {
-		return &chain, err
+		return &chain, fmt.Errorf("%w", err)
 	}
 
 	return &chain, nil
@@ -89,9 +89,11 @@ func load(in *os.File) (*gomarkov.Chain, error) {
 func generate(chain *gomarkov.Chain) {
 	order := chain.Order
 	tokens := make([]string, 0)
+
 	for i := 0; i < order; i++ {
 		tokens = append(tokens, gomarkov.StartToken)
 	}
+
 	for tokens[len(tokens)-1] != gomarkov.EndToken {
 		next, _ := chain.Generate(tokens[(len(tokens) - order):])
 		tokens = append(tokens, next)

@@ -1,0 +1,5 @@
+name: empty suite
+testcases:
+  - name: empty test
+    steps:
+      - script: echo
