@@ -18,7 +18,7 @@ type trainFlags struct {
 
 func NewCommand(parent string) *cobra.Command {
 	flags := trainFlags{
-		order: 0,
+		order: 1,
 	}
 
 	// nolint: exhaustivestruct
