@@ -13,3 +13,7 @@ Types of changes
 - `Removed` for now removed features.
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
+
+## v0.1.1 - 2021-08-22
+
+- `Fixed` default value for order parameter
